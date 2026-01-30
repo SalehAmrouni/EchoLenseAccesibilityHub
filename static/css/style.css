@@ -1,0 +1,47 @@
+:root { --blue: #70b8ff; --royal: #4d79ff; --bg: #000; --red: #ff4b4b; }
+body { background: var(--bg); color: white; font-family: 'Inter', sans-serif; margin: 0; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+
+/* Fixed Localized Scrollbar */
+.glass-card::-webkit-scrollbar, .caption-wall::-webkit-scrollbar { width: 8px; }
+.glass-card::-webkit-scrollbar-track, .caption-wall::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); border-radius: 10px; }
+.glass-card::-webkit-scrollbar-thumb, .caption-wall::-webkit-scrollbar-thumb { background: linear-gradient(var(--blue), var(--royal)); border-radius: 10px; box-shadow: 0 0 10px var(--blue); }
+
+.top-nav { position: fixed; top: 20px; right: 40px; z-index: 9999; }
+.mute-btn { background: rgba(15,15,15,0.8); border: 1px solid var(--blue); color: var(--blue); padding: 12px 20px; border-radius: 25px; cursor: pointer; text-transform: uppercase; font-size: 0.8rem; font-weight: bold; transition: 0.3s; }
+
+.hero-title { font-size: 8rem; font-weight: 900; background: linear-gradient(to bottom, #fff, var(--blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 20px 0; }
+
+/* ENLARGED BUTTONS - STYLE PRESERVED */
+.pill-btn { 
+    background: linear-gradient(to right, var(--blue), var(--royal)); 
+    border: none; 
+    padding: 25px 50px; 
+    min-width: 320px; 
+    font-size: 1.3rem; 
+    border-radius: 80px; 
+    font-weight: 800; 
+    cursor: pointer; 
+    color: black; 
+    transition: 0.3s; 
+    text-transform: uppercase; 
+    display: inline-block;
+    margin: 15px;
+}
+.pill-btn:hover { transform: scale(1.05); color: white; box-shadow: 0 0 30px var(--blue); }
+
+/* Spatial States */
+.active-spatial { animation: spatialPulse 2s infinite; border: 2px solid white !important; }
+.paused-spatial { background: #222 !important; color: white !important; border: 1px solid var(--red) !important; }
+
+@keyframes spatialPulse {
+    0% { box-shadow: 0 0 5px var(--blue); }
+    50% { box-shadow: 0 0 25px var(--blue); }
+    100% { box-shadow: 0 0 5px var(--blue); }
+}
+
+.glass-card { background: rgba(15, 15, 15, 0.95); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 40px; padding: 50px; text-align: center; width: 90%; max-width: 1100px; max-height: 85vh; overflow-y: auto; position: relative; }
+.caption-wall { height: 350px; overflow-y: auto; background: rgba(255,255,255,0.03); border-radius: 20px; padding: 25px; text-align: left; margin: 20px 0; border-left: 4px solid var(--blue); }
+
+#vision-text { color: var(--blue); text-shadow: 0 0 10px var(--blue); font-weight: 800; margin-top: 20px; letter-spacing: 1px; font-size: 1.8rem; }
+.volume-slider { -webkit-appearance: none; width: 100%; height: 12px; border-radius: 10px; background: #222; outline: none; margin: 30px 0; }
+.volume-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 35px; height: 35px; border-radius: 50%; background: var(--blue); cursor: pointer; box-shadow: 0 0 15px var(--blue); }
