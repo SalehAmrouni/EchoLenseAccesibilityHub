@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, Response, jsonify
 import pyttsx3, threading, time
+import webbrowser
+import threading
 from vision_engine import VisionEngine
 from deep_translator import GoogleTranslator
 
@@ -81,8 +83,13 @@ def spatial_data():
         return jsonify(data)
     return jsonify({"msg": "Wait..."})
 
+def open_browser():
+    webbrowser.open("http://localhost:5000")
+
 if __name__ == "__main__":
     # Initialize vision here
     vision = VisionEngine()
     # Using debug=False for the final demo is safer
+    threading.Thread(target=open_browser, daemon=True).start()
     app.run(host='0.0.0.0', port=5000, threaded=True, debug=False)
+    # webbrowser.open("http://localhost:5000")
